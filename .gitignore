@@ -5,6 +5,7 @@
 *.obj
 solarGL
 obj
+*.mp4
 
 # Precompiled Headers
 *.gch

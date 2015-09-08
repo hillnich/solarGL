@@ -127,9 +127,16 @@ void ofApp::draw(){
     // Now turn on my moon/earth shader and pass it
     // the light position
     meShader.begin();
-    lightPos[0] = -cos(earth.orbit * PI/180.);
-    lightPos[1] = 0.0f;
-    lightPos[2] = sin(earth.orbit * PI/180.);
+    if (rotate) {
+	lightPos[0] = -cos(earth.orbit * PI/180.);
+	lightPos[1] = sin(earth.orbit * PI/180.);
+	lightPos[2] = 0.0f;
+    }
+    else {
+	lightPos[0] = -cos(earth.orbit * PI/180.);
+	lightPos[1] = 0.0f;
+	lightPos[2] = sin(earth.orbit * PI/180.);
+    }
     meShader.setUniform3fv("lightPos", lightPos);
     
     // Rotate and translate my earth
